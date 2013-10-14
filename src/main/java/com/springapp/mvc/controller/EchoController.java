@@ -1,4 +1,4 @@
-package com.springapp.mvc;
+package com.springapp.mvc.controller;
 
 import com.springapp.mvc.model.TalkyTalkyRequest;
 import com.springapp.mvc.model.TalkyTalkyResponse;

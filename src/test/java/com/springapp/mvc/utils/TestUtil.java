@@ -1,4 +1,4 @@
-package com.springapp.mvc;
+package com.springapp.mvc.utils;
 
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.ObjectWriter;
