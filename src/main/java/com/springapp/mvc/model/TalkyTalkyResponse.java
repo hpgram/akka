@@ -18,6 +18,9 @@ public class TalkyTalkyResponse implements Serializable {
 
     private String message;
 
+    public TalkyTalkyResponse() {
+    }
+
     public TalkyTalkyResponse(String status, String message) {
         this.status = status;
         this.message = message;
