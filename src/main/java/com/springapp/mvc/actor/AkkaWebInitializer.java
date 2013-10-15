@@ -38,10 +38,10 @@ public class AkkaWebInitializer {
         //Get the actor system from the spring context
         SpringBeanAutowiringSupport.processInjectionBasedOnCurrentContext(this);
 
-        //TODO supervision strategy
+        //defaulting to one-for-one supervision strategy
         master = system.actorOf(new Props(new UntypedActorFactory() {
             public UntypedActor create() {
-                return new MasterActor(10);
+                return new MasterActor(100);
             }
         }), "master");
 
