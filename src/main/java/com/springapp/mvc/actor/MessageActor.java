@@ -24,7 +24,7 @@ public class MessageActor extends UntypedActor {
 
             TalkyTalkyResponse talkyTalkyResponse = new TalkyTalkyResponse(status, message);
 
-            getSender().tell(talkyTalkyResponse, getSelf());
+            getSender().tell(talkyTalkyResponse, getSender());
         } else
             unhandled(object);
     }
