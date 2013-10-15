@@ -1,5 +1,11 @@
 akka
 ====
+
+To run the server
+```
+mvn clean -D jetty.port=9999 jetty:run
+```
+
 Requirements
 
 1) helloworld
