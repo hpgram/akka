@@ -1,9 +1,9 @@
 akka
 ====
 
-To run the server
+To run the server on port 9999
 ```
-mvn clean -D jetty.port=9999 jetty:run
+mvn -D jetty.port=9999 clean jetty:run
 ```
 
 Requirements
