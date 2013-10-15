@@ -1,6 +1,10 @@
 package com.springapp.mvc.service;
 
 import akka.actor.ActorSystem;
+import akka.dispatch.Await;
+import akka.pattern.Patterns;
+import akka.util.Timeout;
+import com.springapp.mvc.actor.AkkaWebInitializer;
 import com.springapp.mvc.model.TalkyTalkyRequest;
 import com.springapp.mvc.model.TalkyTalkyResponse;
 import org.slf4j.Logger;
@@ -19,16 +23,15 @@ public class EchoService {
     @Autowired
     ActorSystem system;
 
+    @Autowired
+    AkkaWebInitializer akkaWebInitializer;
+
     public TalkyTalkyResponse sendResponse(TalkyTalkyRequest talkyTalkyRequest) throws Exception {
-        /*ActorRef actor;
-        Await.Awaitable<Object> response = Patterns.ask(actor, talkyTalkyRequest, Timeout.never());
-        Await.result(response, akka.util.Duration.Inf());*/
 
-        String status = "ack";
-        String message = talkyTalkyRequest.getTarget() + " says " + talkyTalkyRequest.getMessage();
+        log.info("Within service...");
 
-        TalkyTalkyResponse talkyTalkyResponse = new TalkyTalkyResponse(status, message);
-
-        return talkyTalkyResponse;
+        //ActorRef actorRef = system.actorSelection("/user/master").target();
+        Await.Awaitable<Object> response = Patterns.ask(akkaWebInitializer.getMaster(), talkyTalkyRequest, Timeout.intToTimeout(5000));
+        return (TalkyTalkyResponse) Await.result(response, akka.util.Duration.Inf());
     }
 }

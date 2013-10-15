@@ -6,9 +6,19 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd
-        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <context:component-scan base-package="com.springapp.mvc"/>
     <context:annotation-config/>
     <mvc:annotation-driven/>
+
+    <!-- AKKA System Setup -->
+    <bean id="system" class="akka.actor.ActorSystem"
+          factory-method="create"
+          destroy-method="shutdown"
+          scope="singleton">
+        <constructor-arg value="mySpringAkkaSystem"/>
+    </bean>
+
 </beans>

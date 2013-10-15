@@ -63,7 +63,7 @@ public class TestUtil {
     public static void assertNotEqualsJsonStrings(final String actual, final String expected) throws IOException {
         Assert.assertNotEquals(new ObjectMapper().readValue(actual, new TypeReference<HashMap<String, Object>>() {
         }), new ObjectMapper().readValue(expected, new TypeReference<HashMap<String, Object>>() {
-        }), "These two strings are the same Actual: \n\t" + actual + "\nWith Expected String: \n\t" + expected);
+        }), "These two strings are the same Actual: \n\t" + actual + "\n\tWith Expected String: \n\t" + expected);
     }
 
     public static void assertEqualsJsonStrings(final String actual, final String expected, Class<?> valueType) throws IOException {
