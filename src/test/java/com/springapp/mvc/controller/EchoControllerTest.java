@@ -37,7 +37,7 @@ public class EchoControllerTest {
     @Test
     public void headGet() throws Exception {
 
-        final MvcResult mvcResult = mockMvc.perform(get("/reactiveprogramming"))
+        final MvcResult mvcResult = mockMvc.perform(get("/"))
                 .andExpect(status().isOk()).andReturn();
 
         final String response = mvcResult.getResponse().getContentAsString();
@@ -49,7 +49,7 @@ public class EchoControllerTest {
     public void sendEchoPost() throws Exception {
 
         final MvcResult mvcResult = mockMvc.perform(
-                post("/reactiveprogramming/sendecho")
+                post("/sendecho")
                         .content("{\"target\":\"Dean\", \"message\":\"hello\"}")
                         .contentType(MediaType.APPLICATION_JSON).header("Content-Type", MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk()).andReturn();

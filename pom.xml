@@ -3,10 +3,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.springapp</groupId>
-    <artifactId>talkytalky</artifactId>
+    <artifactId>reactiveprogramming</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>talkytalky</name>
+    <name>reactiveprogramming</name>
 
     <repositories>
         <repository>
@@ -127,7 +127,7 @@
     </dependencies>
 
     <build>
-        <finalName>talkytalky</finalName>
+        <finalName>reactiveprogramming</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>

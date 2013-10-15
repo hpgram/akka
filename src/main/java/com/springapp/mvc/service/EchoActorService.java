@@ -16,9 +16,9 @@ import org.springframework.stereotype.Service;
  * @author sivakom
  */
 @Service
-public class EchoService {
+public class EchoActorService {
 
-    private static final Logger log = LoggerFactory.getLogger(EchoService.class);
+    private static final Logger log = LoggerFactory.getLogger(EchoActorService.class);
 
     @Autowired
     ActorSystem system;
@@ -28,9 +28,6 @@ public class EchoService {
 
     public TalkyTalkyResponse sendResponse(TalkyTalkyRequest talkyTalkyRequest) throws Exception {
 
-        log.info("Within service...");
-
-        //ActorRef actorRef = system.actorSelection("/user/master").target();
         Await.Awaitable<Object> response = Patterns.ask(akkaWebInitializer.getMaster(), talkyTalkyRequest, Timeout.intToTimeout(5000));
         return (TalkyTalkyResponse) Await.result(response, akka.util.Duration.Inf());
     }
