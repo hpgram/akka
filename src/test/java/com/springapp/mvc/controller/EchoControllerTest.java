@@ -1,6 +1,6 @@
 package com.springapp.mvc.controller;
 
-import com.springapp.mvc.model.TalkyTalkyResponse;
+import com.springapp.mvc.model.attic.TalkyTalkyResponse;
 import com.springapp.mvc.utils.TestUtil;
 import org.junit.Before;
 import org.junit.Test;

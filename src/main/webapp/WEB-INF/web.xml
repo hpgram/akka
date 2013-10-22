@@ -16,8 +16,4 @@
         <servlet-name>mvc-dispatcher</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-
-    <!--<listener>
-        <listener-class>com.springapp.mvc.actor.AkkaWebInitializer</listener-class>
-    </listener>-->
 </web-app>

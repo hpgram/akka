@@ -1,7 +1,7 @@
 package com.springapp.mvc.controller;
 
-import com.springapp.mvc.model.TalkyTalkyRequest;
-import com.springapp.mvc.model.TalkyTalkyResponse;
+import com.springapp.mvc.model.attic.TalkyTalkyRequest;
+import com.springapp.mvc.model.attic.TalkyTalkyResponse;
 import com.springapp.mvc.service.EchoActorService;
 import com.springapp.mvc.util.Utilities;
 import org.springframework.beans.factory.annotation.Autowired;
