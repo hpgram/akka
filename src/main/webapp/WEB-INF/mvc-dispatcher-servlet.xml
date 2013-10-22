@@ -13,12 +13,29 @@
     <context:annotation-config/>
     <mvc:annotation-driven/>
 
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <mvc:resources mapping="/**" location="/WEB-INF/" />
+
     <!-- AKKA System Setup -->
     <bean id="system" class="akka.actor.ActorSystem"
           factory-method="create"
           destroy-method="shutdown"
           scope="singleton">
         <constructor-arg value="mySpringAkkaSystem"/>
+    </bean>
+
+    <!-- Tyrus Websocket System Setup -->
+    <bean class="com.springapp.websocket.config.TyrusServer">
+        <constructor-arg index="0" value="localhost"/>
+        <constructor-arg index="1" value="8025"  />
+        <constructor-arg index="2" value="/websocket"  />
+        <constructor-arg index="3" type="java.lang.Class[]"
+                         value="com.springapp.websocket.config.ServerWebsocketConfig">
+        </constructor-arg>
     </bean>
 
 </beans>

@@ -1,8 +1,8 @@
 package com.springapp.mvc.actor;
 
 import akka.actor.UntypedActor;
-import com.springapp.mvc.model.TalkyTalkyRequest;
-import com.springapp.mvc.model.TalkyTalkyResponse;
+import com.springapp.mvc.model.attic.TalkyTalkyRequest;
+import com.springapp.mvc.model.attic.TalkyTalkyResponse;
 import com.springapp.mvc.util.Utilities;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

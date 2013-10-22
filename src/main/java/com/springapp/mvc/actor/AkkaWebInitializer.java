@@ -41,7 +41,7 @@ public class AkkaWebInitializer {
         //defaulting to one-for-one supervision strategy
         master = system.actorOf(new Props(new UntypedActorFactory() {
             public UntypedActor create() {
-                return new MasterActor(100);
+                return new MasterActor();
             }
         }), "master");
 

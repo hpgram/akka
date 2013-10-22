@@ -1,4 +1,4 @@
-package com.springapp.mvc.model;
+package com.springapp.mvc.model.attic;
 
 import lombok.Data;
 import org.slf4j.Logger;

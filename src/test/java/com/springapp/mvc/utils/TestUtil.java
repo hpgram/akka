@@ -1,15 +1,13 @@
 package com.springapp.mvc.utils;
 
+import com.springapp.mvc.util.Utilities;
 import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.map.ObjectWriter;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.codehaus.jackson.type.TypeReference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 
 import java.io.IOException;
-import java.io.StringWriter;
 import java.util.HashMap;
 
 import static org.unitils.reflectionassert.ReflectionAssert.assertLenientEquals;
@@ -20,37 +18,6 @@ import static org.unitils.reflectionassert.ReflectionAssert.assertLenientEquals;
 public class TestUtil {
 
     private static final Logger log = LoggerFactory.getLogger(TestUtil.class);
-
-    public static String getPrettyString(String responseJson, Object jsonClass) throws IOException {
-
-        //JavaType javaType = TypeFactory.type(((Class) jsonClass));
-        Object jsonObject = convertJsonString(responseJson, (Class) jsonClass);
-
-        ObjectWriter writer = getObjectMapper().writerWithDefaultPrettyPrinter();
-        //writer = writer.withType(javaType);
-        return writer.writeValueAsString(jsonObject);
-    }
-
-    public static ObjectMapper getObjectMapper() {
-        final ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.setSerializationInclusion(JsonSerialize.Inclusion.NON_NULL);
-        return objectMapper;
-    }
-
-    public static String toPrettyJsonString(Object jsonObject) throws IOException {
-
-        StringWriter writer = new StringWriter();
-        getObjectMapper().writeValue(writer, jsonObject);
-        final String jsonString = writer.toString();
-        return getPrettyString(jsonString, jsonObject.getClass());
-    }
-
-    @SuppressWarnings("unchecked")
-    public static <T> T convertJsonString(String content, Class<T> valueType) throws IOException {
-
-        ObjectMapper objectMapper = getObjectMapper();
-        return (T) objectMapper.readValue(content, (Class) valueType);
-    }
 
 
     public static void assertEqualsJsonStrings(final String actual, final String expected) throws IOException {
@@ -70,7 +37,7 @@ public class TestUtil {
 
         String message = String.format("Actual:\n %s\nExpected: %s\n", actual, expected);
         log.info(message);
-        assertLenientEquals(message, convertJsonString(actual, valueType), convertJsonString(expected, valueType));
+        assertLenientEquals(message, Utilities.convertJsonString(actual, valueType), Utilities.convertJsonString(expected, valueType));
     }
 
 }
